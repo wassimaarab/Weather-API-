@@ -1,0 +1,6 @@
+{
+    "city": "Bordeaux",
+    "api": "WeatherAPI",
+    "value": [{"value": [{"temperature": 22}]}],
+    "timestamp": 1734722532
+}

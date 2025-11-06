@@ -1,0 +1,26 @@
+{
+    "city": "fes",
+    "api": "WeatherAPI",
+    "value": [
+        {"name": "WeatherAPI"},
+        {
+            "date": "J+0",
+            "aWeather": "Clear ",
+            "temperature": "23.97°",
+            "wind": "07.20km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "Partly Cloudy ",
+            "temperature": "24.32°",
+            "wind": "05.40km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "Patchy rain nearby",
+            "temperature": "23.95°",
+            "wind": "05.00km/h"
+        }
+    ],
+    "timestamp": 1762465943
+}

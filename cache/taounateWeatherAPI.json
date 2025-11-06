@@ -1,0 +1,26 @@
+{
+    "city": "taounate",
+    "api": "WeatherAPI",
+    "value": [
+        {"name": "WeatherAPI"},
+        {
+            "date": "J+0",
+            "aWeather": "Clear ",
+            "temperature": "12.79°",
+            "wind": "04.70km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "Patchy rain nearby",
+            "temperature": "12.25°",
+            "wind": "02.50km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "Clear ",
+            "temperature": "13.24°",
+            "wind": "12.60km/h"
+        }
+    ],
+    "timestamp": 1734727816
+}

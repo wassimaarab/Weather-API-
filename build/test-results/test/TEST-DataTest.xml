@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DataTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-12-20T19:22:12" hostname="LAPTOP-USBTISVM" time="0.082">
+  <properties/>
+  <testcase name="testNormalizeFormatNegativeValue()" classname="DataTest" time="0.033"/>
+  <testcase name="testNormalizeFormatZeroValue()" classname="DataTest" time="0.001"/>
+  <testcase name="testArrayCheckCacheWithoutCacheData()" classname="DataTest" time="0.036"/>
+  <testcase name="testNormalizeFormatPositiveValue()" classname="DataTest" time="0.001"/>
+  <testcase name="testArrayCheckCacheWithCacheData()" classname="DataTest" time="0.006"/>
+  <system-out><![CDATA[API name :WeatherAPI
+The data are taken from the cach
+API name :WeatherAPI
+The data are taken from the cach
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,66 @@
+\hypertarget{classeirb_1_1pg203_1_1WeatherAPI}{}\doxysection{eirb.\+pg203.\+Weather\+API Class Reference}
+\label{classeirb_1_1pg203_1_1WeatherAPI}\index{eirb.pg203.WeatherAPI@{eirb.pg203.WeatherAPI}}
+
+
+Inheritance diagram for eirb.\+pg203.\+Weather\+API\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classeirb_1_1pg203_1_1WeatherAPI__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for eirb.\+pg203.\+Weather\+API\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classeirb_1_1pg203_1_1WeatherAPI__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+JSONObject \mbox{\hyperlink{classeirb_1_1pg203_1_1WeatherAPI_ab85c5e845dedc9cfe9f9392d07bc9d23}{get\+Full\+Data}} (String localisation)
+\item 
+void \mbox{\hyperlink{classeirb_1_1pg203_1_1WeatherAPI_a3eff101619e3f49f031631b4a79f78a9}{get\+Targeted\+Data}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1WeatherAPI_ab85c5e845dedc9cfe9f9392d07bc9d23}\label{classeirb_1_1pg203_1_1WeatherAPI_ab85c5e845dedc9cfe9f9392d07bc9d23}} 
+\index{eirb.pg203.WeatherAPI@{eirb.pg203.WeatherAPI}!getFullData@{getFullData}}
+\index{getFullData@{getFullData}!eirb.pg203.WeatherAPI@{eirb.pg203.WeatherAPI}}
+\doxysubsubsection{\texorpdfstring{getFullData()}{getFullData()}}
+{\footnotesize\ttfamily JSONObject eirb.\+pg203.\+Weather\+API.\+get\+Full\+Data (\begin{DoxyParamCaption}\item[{String}]{localisation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the full data for a given location Handle API connection and argument exceptions 
+\begin{DoxyParams}{Parameters}
+{\em localisation} & \+: the given location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSONObject with data inside ~\newline
+ 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_abd6d08e443cebb43748e9db79243c351}{eirb.\+pg203.\+Data}}.
+
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1WeatherAPI_a3eff101619e3f49f031631b4a79f78a9}\label{classeirb_1_1pg203_1_1WeatherAPI_a3eff101619e3f49f031631b4a79f78a9}} 
+\index{eirb.pg203.WeatherAPI@{eirb.pg203.WeatherAPI}!getTargetedData@{getTargetedData}}
+\index{getTargetedData@{getTargetedData}!eirb.pg203.WeatherAPI@{eirb.pg203.WeatherAPI}}
+\doxysubsubsection{\texorpdfstring{getTargetedData()}{getTargetedData()}}
+{\footnotesize\ttfamily void eirb.\+pg203.\+Weather\+API.\+get\+Targeted\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Extract the targeted data (Temperature , wind Speed , weather ...) from our JSONObject ~\newline
+ And put it in the JSONArray target\+Data 
+
+Reimplemented from \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_afdcb29f9ff99bf03345507377af40531}{eirb.\+pg203.\+Data}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/eirb/pg203/\mbox{\hyperlink{WeatherAPI_8java}{Weather\+API.\+java}}\end{DoxyCompactItemize}

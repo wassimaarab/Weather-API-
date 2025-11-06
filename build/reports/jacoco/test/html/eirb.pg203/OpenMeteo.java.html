@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OpenMeteo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pg203-23384</a> &gt; <a href="index.source.html" class="el_package">eirb.pg203</a> &gt; <span class="el_source">OpenMeteo.java</span></div><h1>OpenMeteo.java</h1><pre class="source lang-java linenums">package eirb.pg203;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+
+public class OpenMeteo extends Data{
+    /**
+     * Contains all the weather codes WCO with the description associated to it 
+     */
+<span class="fc" id="L17">    JSONObject weatherDescriptions=new JSONObject();</span>
+
+    /**
+     * fill in the weatherDesptions  
+     */
+    OpenMeteo(){
+<span class="fc" id="L23">        super();</span>
+<span class="fc" id="L24">        this.apiName =&quot;OpenMeteo&quot;;</span>
+<span class="fc" id="L25">        weatherDescriptions.put(&quot;0&quot;, &quot;clear&quot;);</span>
+<span class="fc" id="L26">        weatherDescriptions.put(&quot;1&quot;, &quot;clear&quot;);</span>
+<span class="fc" id="L27">        weatherDescriptions.put(&quot;2&quot;, &quot;partly cloudy&quot;);</span>
+<span class="fc" id="L28">        weatherDescriptions.put(&quot;3&quot;, &quot;overcast&quot;);</span>
+<span class="fc" id="L29">        weatherDescriptions.put(&quot;45&quot;, &quot;fog&quot;);</span>
+<span class="fc" id="L30">        weatherDescriptions.put(&quot;48&quot;, &quot;cold&quot;);</span>
+<span class="fc" id="L31">        weatherDescriptions.put(&quot;51&quot;, &quot;rain&quot;);</span>
+<span class="fc" id="L32">        weatherDescriptions.put(&quot;53&quot;, &quot;rain&quot;);</span>
+<span class="fc" id="L33">        weatherDescriptions.put(&quot;55&quot;, &quot;rain&quot;);</span>
+<span class="fc" id="L34">        weatherDescriptions.put(&quot;61&quot;, &quot;rain&quot;);</span>
+<span class="fc" id="L35">        weatherDescriptions.put(&quot;63&quot;, &quot;rain&quot;);</span>
+<span class="fc" id="L36">        weatherDescriptions.put(&quot;65&quot;, &quot;rain&quot;);</span>
+<span class="fc" id="L37">        weatherDescriptions.put(&quot;80&quot;, &quot;showers&quot;);</span>
+<span class="fc" id="L38">        weatherDescriptions.put(&quot;81&quot;, &quot;showers&quot;);</span>
+<span class="fc" id="L39">        weatherDescriptions.put(&quot;82&quot;, &quot;showers&quot;);</span>
+<span class="fc" id="L40">        weatherDescriptions.put(&quot;95&quot;, &quot;Thunderstorm&quot;);</span>
+<span class="fc" id="L41">        weatherDescriptions.put(&quot;96&quot;, &quot;Thunderstorm&quot;);</span>
+<span class="fc" id="L42">        weatherDescriptions.put(&quot;99&quot;, &quot;Thunderstorm&quot;);</span>
+<span class="fc" id="L43">    }</span>
+
+    /**
+     * Get the weather description associated to a weather code 
+     * @param weatherCodes a AJSONARRAY containing the weather codes
+     * @return String describing the weather 
+     */
+    String getWeatherDescription(JSONArray weatherCodes) {
+<span class="fc" id="L51">        StringBuilder description = new StringBuilder();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        for (int i = 0; i &lt; weatherCodes.length(); i++) {</span>
+<span class="fc" id="L53">            String code = weatherCodes.optString(i, &quot;0&quot;); // Utiliser &quot;0&quot; comme valeur par défaut si le code est invalide</span>
+<span class="fc" id="L54">            String weather = weatherDescriptions.optString(code, &quot;unknown&quot;);</span>
+<span class="fc" id="L55">            description.append(&quot; &quot;).append(weather);</span>
+        }
+<span class="fc" id="L57">        return description.toString().trim();</span>
+    }
+    /**
+     * Given a city name it returns the longitude and latitude associated
+     * @param cityName
+     * @return double[2]={latitude , longitude}
+     * 
+     */
+    static double[] getCoordinates(String cityName) {
+<span class="fc" id="L66">        double[] coord = new double[2];</span>
+<span class="fc" id="L67">        coord[0]=0;</span>
+<span class="fc" id="L68">        coord[1]=0;</span>
+<span class="pc bpc" id="L69" title="1 of 4 branches missed.">        if (cityName == null || cityName.trim().isEmpty()) {</span>
+<span class="fc" id="L70">            System.err.println(&quot;No city name mentionned&quot;);</span>
+<span class="fc" id="L71">            return coord ;</span>
+        }
+    
+<span class="fc" id="L74">        StringBuilder cityData = new StringBuilder();</span>
+        try{
+<span class="fc" id="L76">            URL url = URI.create(&quot;https://api.opencagedata.com/geocode/v1/json?q=&quot;+cityName+&quot;&amp;key=482503fa8b38414c97c4b1866ae52a35&quot;).toURL();</span>
+<span class="fc" id="L77">            HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L78">            conn.setRequestMethod(&quot;GET&quot;);</span>
+<span class="fc" id="L79">            try (BufferedReader reader = new BufferedReader(</span>
+<span class="fc" id="L80">                new InputStreamReader(conn.getInputStream()))) {</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">                for (String line; (line = reader.readLine()) != null; ) {</span>
+<span class="fc" id="L82">                    cityData.append(line);</span>
+                }
+            }
+        }
+<span class="nc" id="L86">        catch(IOException ioe){</span>
+<span class="nc" id="L87">            System.out.println(&quot;API name : opencagetdata\n API connection problem occured \\n&quot; +//</span>
+                                &quot; Please make verify your Internet connection&quot;);
+<span class="nc" id="L89">            return coord ;</span>
+<span class="fc" id="L90">        }</span>
+        
+        try{
+<span class="fc" id="L93">            JSONObject jsonCityData = new JSONObject(cityData.toString());</span>
+<span class="fc" id="L94">            double lat = jsonCityData.getJSONArray(&quot;results&quot;).getJSONObject(0).getJSONObject(&quot;geometry&quot;).getDouble(&quot;lat&quot;);</span>
+<span class="fc" id="L95">            double lng = jsonCityData.getJSONArray(&quot;results&quot;).getJSONObject(0).getJSONObject(&quot;geometry&quot;).getDouble(&quot;lng&quot;);</span>
+<span class="fc" id="L96">            coord[0]=lat;</span>
+<span class="fc" id="L97">            coord[1]=lng;</span>
+<span class="fc" id="L98">            return coord;</span>
+        }
+<span class="fc" id="L100">        catch(JSONException jo){</span>
+<span class="fc" id="L101">            System.out.println(&quot;Please enter a Valid city name&quot;);</span>
+<span class="fc" id="L102">            return coord;</span>
+        }
+    }
+
+    @Override
+    public JSONObject getFullData(String localisation) {
+<span class="fc" id="L108">        double[] coords = getCoordinates(localisation);</span>
+<span class="pc bpc" id="L109" title="1 of 4 branches missed.">        if(coords[1]== 0 &amp;&amp; coords[0]==1){</span>
+<span class="nc" id="L110">            return new JSONObject();</span>
+        }
+        try{
+<span class="fc" id="L113">            return WeatherFetchingException.getData(&quot;https://api.open-meteo.com/v1/forecast?latitude=&quot;+coords[0]+&quot;&amp;longitude=&quot;+coords[1]+&quot;&amp;hourly=temperature_2m,wind_speed_10m&amp;forecast_days=3&amp;daily=weather_code&quot;);</span>
+        }
+<span class="nc" id="L115">        catch(WeatherFetchingException weatherFetchingException){</span>
+<span class="nc" id="L116">            System.out.println(&quot;API name :&quot; +apiName +&quot;\n  API connection problem occured \n Please verify your Internet connection&quot;);</span>
+<span class="nc" id="L117">            return new JSONObject();</span>
+        }
+    }
+
+    @Override
+    public void getTargetedData() {
+<span class="fc" id="L123">        targetData = new JSONArray();</span>
+<span class="pc bpc" id="L124" title="2 of 4 branches missed.">        if(aJsonObject == null || aJsonObject.length() == 0){</span>
+<span class="nc" id="L125">            return;</span>
+        }
+<span class="fc" id="L127">        JSONObject name = new JSONObject();</span>
+<span class="fc" id="L128">        name.put(&quot;name&quot;,this.apiName);</span>
+<span class="fc" id="L129">        targetData.put(name);</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">        for (int i=0 ; i&lt;3 ; i++){</span>
+
+<span class="fc" id="L132">            JSONArray hourlyTemp = aJsonObject.getJSONObject(&quot;hourly&quot;).getJSONArray(&quot;temperature_2m&quot;);</span>
+<span class="fc" id="L133">            JSONArray hourlyWind = aJsonObject.getJSONObject(&quot;hourly&quot;).getJSONArray(&quot;wind_speed_10m&quot;);</span>
+<span class="fc" id="L134">            JSONArray weatherCode = aJsonObject.getJSONObject(&quot;daily&quot;).getJSONArray(&quot;weather_code&quot;);</span>
+
+<span class="fc" id="L136">            double tempC=0;</span>
+<span class="fc" id="L137">            double wind_kph = 0;</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">            for(int j = 0 ; j &lt; hourlyTemp.length() ; j++ ){</span>
+<span class="fc" id="L139">                tempC += hourlyTemp.getDouble(j);</span>
+            }
+<span class="fc bfc" id="L141" title="All 2 branches covered.">            for(int j = 0 ; j &lt; hourlyWind.length(); j++){</span>
+<span class="fc" id="L142">                wind_kph+=hourlyWind.getDouble(j);</span>
+            }
+<span class="fc" id="L144">            tempC/=hourlyTemp.length();</span>
+<span class="fc" id="L145">            wind_kph/=hourlyWind.length();</span>
+
+<span class="fc" id="L147">            String weatherCondition = getWeatherDescription(weatherCode);</span>
+
+<span class="fc" id="L149">            JSONObject dateTemp = new JSONObject();</span>
+<span class="fc" id="L150">            dateTemp.put(&quot;date&quot;,(&quot;J+&quot;+i).toString() );</span>
+<span class="fc" id="L151">            dateTemp.put(&quot;temperature&quot;, (normalizeformat(tempC)+&quot;°&quot;).toString()); </span>
+<span class="fc" id="L152">            dateTemp.put(&quot;wind&quot;, (normalizeformat(wind_kph)+&quot;km/h&quot;).toString());</span>
+<span class="fc" id="L153">            dateTemp.put(&quot;aWeather&quot;,weatherCondition);</span>
+<span class="fc" id="L154">            targetData.put(dateTemp);</span>
+        }
+<span class="fc" id="L156">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eirb.pg203.LocalisationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-12-20T19:22:12" hostname="LAPTOP-USBTISVM" time="0.012">
+  <properties/>
+  <testcase name="getLocalisationTest1()" classname="eirb.pg203.LocalisationTest" time="0.001"/>
+  <testcase name="getLocalisationTest2()" classname="eirb.pg203.LocalisationTest" time="0.004"/>
+  <testcase name="getLocalisationTest3()" classname="eirb.pg203.LocalisationTest" time="0.001"/>
+  <testcase name="getLocalisationTest4()" classname="eirb.pg203.LocalisationTest" time="0.001"/>
+  <testcase name="getLocalisationTest5()" classname="eirb.pg203.LocalisationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

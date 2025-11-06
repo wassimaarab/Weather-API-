@@ -1,0 +1,26 @@
+{
+    "city": "bordeaux",
+    "api": "OpenWeatherMap",
+    "value": [
+        {"name": "OpenWeatherMap"},
+        {
+            "date": "J+0",
+            "aWeather": "Rain",
+            "temperature": "08.86°",
+            "wind": "04.30km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "Rain",
+            "temperature": "11.49°",
+            "wind": "06.08km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "Rain",
+            "temperature": "12.97°",
+            "wind": "08.07km/h"
+        }
+    ],
+    "timestamp": 1734717114
+}

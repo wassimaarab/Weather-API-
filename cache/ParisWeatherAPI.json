@@ -1,0 +1,6 @@
+{
+    "city": "Paris",
+    "api": "WeatherAPI",
+    "value": [{"value": [{"temperature": 22.5}]}],
+    "timestamp": 1734721589
+}

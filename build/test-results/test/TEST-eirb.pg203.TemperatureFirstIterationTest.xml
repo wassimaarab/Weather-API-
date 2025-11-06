@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eirb.pg203.TemperatureFirstIterationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-12-20T19:22:16" hostname="LAPTOP-USBTISVM" time="0.117">
+  <properties/>
+  <testcase name="getTemperatureTest2()" classname="eirb.pg203.TemperatureFirstIterationTest" time="0.084"/>
+  <testcase name="getTempratureTest1()" classname="eirb.pg203.TemperatureFirstIterationTest" time="0.032"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

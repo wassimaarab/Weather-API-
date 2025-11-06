@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FirstIteration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pg203-23384</a> &gt; <a href="index.source.html" class="el_package">eirb.pg203</a> &gt; <span class="el_source">FirstIteration.java</span></div><h1>FirstIteration.java</h1><pre class="source lang-java linenums">package eirb.pg203;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class FirstIteration extends Arguments{
+    JSONObject aJsonObject;
+<span class="fc" id="L8">    FirstIteration(JSONObject aJsonObject){</span>
+<span class="fc" id="L9">        this.aJsonObject=aJsonObject;</span>
+<span class="fc" id="L10">    }</span>
+    
+    public JSONArray getTemperatures() {
+<span class="fc" id="L13">        JSONArray resultArray = new JSONArray();</span>
+<span class="fc" id="L14">        JSONArray forecastDays = aJsonObject.getJSONObject(&quot;forecast&quot;).getJSONArray(&quot;forecastday&quot;);</span>
+
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (int i = 0; i &lt; forecastDays.length(); i++) {</span>
+<span class="fc" id="L17">            JSONObject day = forecastDays.getJSONObject(i);</span>
+<span class="fc" id="L18">            JSONArray hourlyData = day.getJSONArray(&quot;hour&quot;);</span>
+<span class="fc" id="L19">            JSONObject firstHour = hourlyData.getJSONObject(0);</span>
+<span class="fc" id="L20">            double tempC = firstHour.getDouble(&quot;temp_c&quot;);</span>
+<span class="fc" id="L21">            JSONObject dateTemp = new JSONObject();</span>
+<span class="fc" id="L22">            dateTemp.put(&quot;date&quot;,(&quot;J+&quot; +i).toString() );</span>
+<span class="fc" id="L23">            dateTemp.put(&quot;temperature&quot;, (tempC+&quot;°&quot;).toString()); </span>
+<span class="fc" id="L24">            resultArray.put(dateTemp);</span>
+        }
+<span class="fc" id="L26">        return resultArray;</span>
+    }
+
+    static void afficheNtimes(String aString, int number){
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        for(int i =0 ; i &lt; number ; i++){</span>
+<span class="nc" id="L31">            System.out.print(aString);</span>
+        }
+<span class="nc" id="L33">    }</span>
+    static void afficherTable1(JSONArray aJsonArray){
+<span class="nc" id="L35">        int length =aJsonArray.length();</span>
+<span class="nc" id="L36">        afficheNtimes(&quot; &quot;, 6);</span>
+<span class="nc" id="L37">        afficheNtimes(&quot;+-----&quot;,length);</span>
+<span class="nc" id="L38">        System.out.println();</span>
+<span class="nc" id="L39">        afficheNtimes(&quot; &quot;, 6);</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (int i = 0 ; i &lt; length ;i++) {</span>
+<span class="nc" id="L41">            System.out.printf(&quot;| %-3s &quot;, aJsonArray.getJSONObject(i).getString(&quot;date&quot;));</span>
+        }
+<span class="nc" id="L43">        System.out.println(&quot;|&quot;);</span>
+<span class="nc" id="L44">        afficheNtimes(&quot;+-----&quot;,length+1);</span>
+<span class="nc" id="L45">        System.out.println();</span>
+<span class="nc" id="L46">        System.out.print(&quot;|     &quot;); </span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        for (int i = 0 ; i &lt; length;i++) {</span>
+<span class="nc" id="L48">            System.out.printf(&quot;| %-3s &quot;, aJsonArray.getJSONObject(i).getDouble(&quot;temperature&quot;)); </span>
+        }
+<span class="nc" id="L50">        System.out.println(&quot;|&quot;);</span>
+<span class="nc" id="L51">        afficheNtimes(&quot;+-----&quot;,length+1);</span>
+<span class="nc" id="L52">        System.out.println();</span>
+<span class="nc" id="L53">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

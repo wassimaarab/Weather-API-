@@ -1,0 +1,26 @@
+{
+    "city": "Meknes",
+    "api": "OpenWeatherMap",
+    "value": [
+        {"name": "OpenWeatherMap"},
+        {
+            "date": "J+0",
+            "aWeather": "Clear",
+            "temperature": "16.97°",
+            "wind": "03.03km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "Clear",
+            "temperature": "17.26°",
+            "wind": "02.56km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "Clear",
+            "temperature": "17.60°",
+            "wind": "02.68km/h"
+        }
+    ],
+    "timestamp": 1738873316
+}

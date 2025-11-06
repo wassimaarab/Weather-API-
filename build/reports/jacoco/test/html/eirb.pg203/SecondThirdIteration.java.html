@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SecondThirdIteration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pg203-23384</a> &gt; <a href="index.source.html" class="el_package">eirb.pg203</a> &gt; <span class="el_source">SecondThirdIteration.java</span></div><h1>SecondThirdIteration.java</h1><pre class="source lang-java linenums">package eirb.pg203;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class SecondThirdIteration extends Arguments{
+<span class="nc" id="L9">    WeatherAPI f1 = new WeatherAPI();</span>
+<span class="nc" id="L10">    OpenMeteo f2 = new OpenMeteo();</span>
+<span class="nc" id="L11">    OpenWeatherMap f3 = new OpenWeatherMap();</span>
+    /**
+     * Stores all the data returned by different API's 
+     */
+    JSONArray[] aJsonArraysList;
+
+    /**
+     * {key = weather condition : value = icon}
+     */
+<span class="nc" id="L20">    JSONObject icons = new JSONObject();</span>
+    
+    /**
+     * Fill in the icons JSONOBject 
+     * @param aJsonArraysList
+     */
+<span class="nc" id="L26">    SecondThirdIteration(String[] args){</span>
+<span class="nc" id="L27">        this.aJsonArraysList=Weather(args);</span>
+<span class="nc" id="L28">        icons.put(&quot;sun&quot;, &quot; ☀️ &quot;);</span>
+<span class="nc" id="L29">        icons.put(&quot;clear&quot;, &quot; ☀️ &quot;);</span>
+<span class="nc" id="L30">        icons.put(&quot;partly cloud&quot;, &quot; 🌤 &quot;);</span>
+<span class="nc" id="L31">        icons.put(&quot;cloud&quot;, &quot; ☁️ &quot;);</span>
+<span class="nc" id="L32">        icons.put(&quot;overcast&quot;, &quot; 🌥 &quot;);</span>
+<span class="nc" id="L33">        icons.put(&quot;thunderstorm&quot;, &quot; ⛈ &quot;);</span>
+<span class="nc" id="L34">        icons.put(&quot;snow&quot;, &quot; 🌨 &quot;);</span>
+<span class="nc" id="L35">        icons.put(&quot;fog&quot;, &quot; 🌫 &quot;);</span>
+<span class="nc" id="L36">        icons.put(&quot;tornado&quot;, &quot; 🌪 &quot;);</span>
+<span class="nc" id="L37">        icons.put(&quot;cold&quot;, &quot; ❄️ &quot;);</span>
+<span class="nc" id="L38">        icons.put(&quot;rain&quot;, &quot; 🌧️ &quot;);</span>
+<span class="nc" id="L39">        icons.put(&quot;storm&quot;, &quot; 🌩️ &quot;);</span>
+<span class="nc" id="L40">        icons.put(&quot;wind&quot;, &quot; 🌬️ &quot;);</span>
+<span class="nc" id="L41">        icons.put(&quot;showers&quot;,&quot; 🌦️ &quot;);</span>
+<span class="nc" id="L42">        icons.put(&quot;default&quot;, &quot; 🌕 &quot;);</span>
+<span class="nc" id="L43">    }</span>
+
+    /**
+     * Display a given string &quot;aString&quot; a &quot;number&quot; of times
+     * @param aString 
+     * @param number 
+     */
+    static void displayNtimes(String aString, int number){
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        for(int i =0 ; i &lt; number ; i++){</span>
+<span class="nc" id="L52">            System.out.print(aString);</span>
+        }
+<span class="nc" id="L54">    }</span>
+    
+    /**
+     * Given a weather condition &quot;weather&quot; returns the associated icon
+     * @param weather
+     * @return String containing the icon 
+     */
+    String getWeatherIcon(String weather) {
+<span class="nc" id="L62">        String weatherLC = weather.toLowerCase();</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        for (String key : icons.keySet()) {       </span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (weatherLC.contains(key)) {       </span>
+<span class="nc" id="L65">            return icons.getString(key);      </span>
+        }
+<span class="nc" id="L67">    }</span>
+<span class="nc" id="L68">        return icons.getString(&quot;default&quot;);</span>
+    }
+
+    public &lt;E extends Data&gt; void countNonEmptyJSONArray(E api, String location, AtomicInteger count) {
+<span class="nc" id="L72">        api.arrayCheckCache(api.apiName, location);</span>
+<span class="nc bnc" id="L73" title="All 4 branches missed.">        if (api.targetData == null || api.targetData.length() != 0) {</span>
+<span class="nc" id="L74">            count.incrementAndGet();</span>
+        }
+<span class="nc" id="L76">    }</span>
+
+    public &lt;E extends Data&gt; void storeNonEmptyJSONArray(E api, JSONArray[] jsonArrayTable ,AtomicInteger count) {
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if(api.targetData.length()!= 0){</span>
+<span class="nc" id="L80">            jsonArrayTable[count.get() -1] = api.targetData;</span>
+<span class="nc" id="L81">            count.decrementAndGet();</span>
+        }
+<span class="nc" id="L83">    }</span>
+
+    public JSONArray[] Weather(String[] args)  {
+<span class="nc" id="L86">        AtomicInteger count = new AtomicInteger(0);</span>
+        try{
+<span class="nc" id="L88">        String localisation =Arguments.getLocalisation(args);</span>
+
+        
+<span class="nc" id="L91">        countNonEmptyJSONArray(f1,localisation,count);</span>
+<span class="nc" id="L92">        countNonEmptyJSONArray(f2,localisation,count);</span>
+<span class="nc" id="L93">        countNonEmptyJSONArray(f3,localisation,count);</span>
+
+<span class="nc" id="L95">        JSONArray[] jsonArrayTable = new JSONArray[count.get()];</span>
+        
+<span class="nc" id="L97">        storeNonEmptyJSONArray(f1, jsonArrayTable, count);</span>
+<span class="nc" id="L98">        storeNonEmptyJSONArray(f2, jsonArrayTable, count);</span>
+<span class="nc" id="L99">        storeNonEmptyJSONArray(f3, jsonArrayTable, count);</span>
+
+<span class="nc" id="L101">        return jsonArrayTable;</span>
+        }
+<span class="nc" id="L103">        catch(ArgumentException arge){</span>
+<span class="nc" id="L104">            System.err.println(&quot;ERROR Localisation: No city mentionned. Please include \\\&quot;-l CityName\\\&quot; in your command lignee&quot;);</span>
+<span class="nc" id="L105">            return null;</span>
+        }
+    }
+
+    /**
+     * display the table with all the API and the data associated 
+     */
+    void displayTable(){
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        if (aJsonArraysList == null) {</span>
+<span class="nc" id="L114">            return ;</span>
+        }
+<span class="nc" id="L116">        int length =aJsonArraysList.length;</span>
+<span class="nc" id="L117">        displayNtimes(&quot; &quot;, 19);</span>
+<span class="nc" id="L118">        displayNtimes(&quot;+---------------------&quot;,3);</span>
+<span class="nc" id="L119">        System.out.println();</span>
+<span class="nc" id="L120">        displayNtimes(&quot; &quot;, 19);</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        for (int i = 0 ; i &lt; 3 ;i++) {</span>
+<span class="nc" id="L122">            System.out.printf(&quot;| %-19s &quot;, aJsonArraysList[length-1].getJSONObject(i+1).getString(&quot;date&quot;));</span>
+        }
+<span class="nc" id="L124">        System.out.println(&quot;|&quot;);</span>
+<span class="nc" id="L125">        System.out.print(&quot;+------------------&quot;);</span>
+<span class="nc" id="L126">        displayNtimes(&quot;+---------------------&quot;,3);</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        for (int i = 0; i &lt; length ;i++) {</span>
+            
+<span class="nc" id="L129">            System.out.println();</span>
+<span class="nc" id="L130">            System.out.printf(&quot;| %-16s &quot;,aJsonArraysList[i].getJSONObject(0).getString(&quot;name&quot;)) ;</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            for(int j =1 ; j&lt; aJsonArraysList[i].length() ;j++){</span>
+<span class="nc" id="L132">                String temp =aJsonArraysList[i].getJSONObject(j).getString(&quot;temperature&quot;);</span>
+<span class="nc" id="L133">                System.out.printf(&quot;| %-3s&quot;, temp);</span>
+<span class="nc" id="L134">                String icon = getWeatherIcon(aJsonArraysList[i].getJSONObject(j).getString(&quot;aWeather&quot;));</span>
+<span class="nc bnc" id="L135" title="All 4 branches missed.">                if(icon.equals(&quot; ☀️ &quot;) || icon.equals(&quot; ☁️ &quot;)){</span>
+<span class="nc" id="L136">                    System.out.printf(&quot;%-5s&quot;, icon);</span>
+                }
+                else{
+<span class="nc" id="L139">                    System.out.printf(&quot;%-6s&quot;, icon);</span>
+                }
+<span class="nc" id="L141">                String wind =aJsonArraysList[i].getJSONObject(j).getString(&quot;wind&quot;);</span>
+<span class="nc" id="L142">                System.out.printf(&quot;%-6s&quot;,wind); </span>
+            }
+<span class="nc" id="L144">            System.out.println(&quot;|&quot;);</span>
+<span class="nc" id="L145">            System.out.print(&quot;+------------------&quot;);</span>
+<span class="nc" id="L146">            displayNtimes(&quot;+---------------------&quot;,3);</span>
+<span class="nc" id="L147">            System.out.println();</span>
+        }
+        
+<span class="nc" id="L150">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

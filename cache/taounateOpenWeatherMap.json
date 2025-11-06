@@ -1,0 +1,26 @@
+{
+    "city": "taounate",
+    "api": "OpenWeatherMap",
+    "value": [
+        {"name": "OpenWeatherMap"},
+        {
+            "date": "J+0",
+            "aWeather": "Rain",
+            "temperature": "19.18°",
+            "wind": "02.06km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "Rain",
+            "temperature": "15.03°",
+            "wind": "04.35km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "Rain",
+            "temperature": "15.99°",
+            "wind": "04.17km/h"
+        }
+    ],
+    "timestamp": 1734727818
+}

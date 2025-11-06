@@ -1,0 +1,66 @@
+\hypertarget{classeirb_1_1pg203_1_1OpenMeteo}{}\doxysection{eirb.\+pg203.\+Open\+Meteo Class Reference}
+\label{classeirb_1_1pg203_1_1OpenMeteo}\index{eirb.pg203.OpenMeteo@{eirb.pg203.OpenMeteo}}
+
+
+Inheritance diagram for eirb.\+pg203.\+Open\+Meteo\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classeirb_1_1pg203_1_1OpenMeteo__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for eirb.\+pg203.\+Open\+Meteo\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classeirb_1_1pg203_1_1OpenMeteo__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+JSONObject \mbox{\hyperlink{classeirb_1_1pg203_1_1OpenMeteo_a59271477bdef0bab762b7bd27f04d247}{get\+Full\+Data}} (String localisation)
+\item 
+void \mbox{\hyperlink{classeirb_1_1pg203_1_1OpenMeteo_acce5453242d750800fe59af7cdb6c791}{get\+Targeted\+Data}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1OpenMeteo_a59271477bdef0bab762b7bd27f04d247}\label{classeirb_1_1pg203_1_1OpenMeteo_a59271477bdef0bab762b7bd27f04d247}} 
+\index{eirb.pg203.OpenMeteo@{eirb.pg203.OpenMeteo}!getFullData@{getFullData}}
+\index{getFullData@{getFullData}!eirb.pg203.OpenMeteo@{eirb.pg203.OpenMeteo}}
+\doxysubsubsection{\texorpdfstring{getFullData()}{getFullData()}}
+{\footnotesize\ttfamily JSONObject eirb.\+pg203.\+Open\+Meteo.\+get\+Full\+Data (\begin{DoxyParamCaption}\item[{String}]{localisation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the full data for a given location Handle API connection and argument exceptions 
+\begin{DoxyParams}{Parameters}
+{\em localisation} & \+: the given location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSONObject with data inside ~\newline
+ 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_abd6d08e443cebb43748e9db79243c351}{eirb.\+pg203.\+Data}}.
+
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1OpenMeteo_acce5453242d750800fe59af7cdb6c791}\label{classeirb_1_1pg203_1_1OpenMeteo_acce5453242d750800fe59af7cdb6c791}} 
+\index{eirb.pg203.OpenMeteo@{eirb.pg203.OpenMeteo}!getTargetedData@{getTargetedData}}
+\index{getTargetedData@{getTargetedData}!eirb.pg203.OpenMeteo@{eirb.pg203.OpenMeteo}}
+\doxysubsubsection{\texorpdfstring{getTargetedData()}{getTargetedData()}}
+{\footnotesize\ttfamily void eirb.\+pg203.\+Open\+Meteo.\+get\+Targeted\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Extract the targeted data (Temperature , wind Speed , weather ...) from our JSONObject ~\newline
+ And put it in the JSONArray target\+Data 
+
+Reimplemented from \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_afdcb29f9ff99bf03345507377af40531}{eirb.\+pg203.\+Data}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/eirb/pg203/\mbox{\hyperlink{OpenMeteo_8java}{Open\+Meteo.\+java}}\end{DoxyCompactItemize}

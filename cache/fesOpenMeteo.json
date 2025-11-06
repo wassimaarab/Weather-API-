@@ -1,0 +1,26 @@
+{
+    "city": "fes",
+    "api": "OpenMeteo",
+    "value": [
+        {"name": "OpenMeteo"},
+        {
+            "date": "J+0",
+            "aWeather": "showers overcast overcast",
+            "temperature": "26.14°",
+            "wind": "18.80km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "showers overcast overcast",
+            "temperature": "26.14°",
+            "wind": "18.80km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "showers overcast overcast",
+            "temperature": "26.14°",
+            "wind": "18.80km/h"
+        }
+    ],
+    "timestamp": 1762465945
+}

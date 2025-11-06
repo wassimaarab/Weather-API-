@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eirb.pg203.OpenWeatherMapTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-12-20T19:22:16" hostname="LAPTOP-USBTISVM" time="0.458">
+  <properties/>
+  <testcase name="getFullDataOpenWeatherMapTest1()" classname="eirb.pg203.OpenWeatherMapTest" time="0.054"/>
+  <testcase name="getFullDataOpenWeatherMapTest2()" classname="eirb.pg203.OpenWeatherMapTest" time="0.296"/>
+  <testcase name="getFullDataOpenWeatherMapTest3()" classname="eirb.pg203.OpenWeatherMapTest" time="0.048"/>
+  <testcase name="getTargetedDataOpenWeatherMapTest1()" classname="eirb.pg203.OpenWeatherMapTest" time="0.026"/>
+  <testcase name="getTargetedDataOpenWeatherMapTest2()" classname="eirb.pg203.OpenWeatherMapTest" time="0.027"/>
+  <system-out><![CDATA[API name :OpenWeatherMap
+  API connection problem occured 
+ Please verify your Internet connection
+API name :OpenWeatherMap
+  API connection problem occured 
+ Please verify your Internet connection
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

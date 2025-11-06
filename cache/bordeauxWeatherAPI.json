@@ -1,0 +1,26 @@
+{
+    "city": "bordeaux",
+    "api": "WeatherAPI",
+    "value": [
+        {"name": "WeatherAPI"},
+        {
+            "date": "J+0",
+            "aWeather": "Clear ",
+            "temperature": "07.12°",
+            "wind": "13.30km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "Patchy rain nearby",
+            "temperature": "10.44°",
+            "wind": "09.00km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "Patchy rain nearby",
+            "temperature": "11.61°",
+            "wind": "14.00km/h"
+        }
+    ],
+    "timestamp": 1734717111
+}

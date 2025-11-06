@@ -1,0 +1,26 @@
+{
+    "city": "Meknes",
+    "api": "WeatherAPI",
+    "value": [
+        {"name": "WeatherAPI"},
+        {
+            "date": "J+0",
+            "aWeather": "Clear ",
+            "temperature": "10.18°",
+            "wind": "11.50km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "Clear ",
+            "temperature": "10.35°",
+            "wind": "07.20km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "Clear ",
+            "temperature": "10.67°",
+            "wind": "05.00km/h"
+        }
+    ],
+    "timestamp": 1738873313
+}

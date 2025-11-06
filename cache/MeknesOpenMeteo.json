@@ -1,0 +1,26 @@
+{
+    "city": "Meknes",
+    "api": "OpenMeteo",
+    "value": [
+        {"name": "OpenMeteo"},
+        {
+            "date": "J+0",
+            "aWeather": "clear fog fog",
+            "temperature": "09.28°",
+            "wind": "07.60km/h"
+        },
+        {
+            "date": "J+1",
+            "aWeather": "clear fog fog",
+            "temperature": "09.28°",
+            "wind": "07.60km/h"
+        },
+        {
+            "date": "J+2",
+            "aWeather": "clear fog fog",
+            "temperature": "09.28°",
+            "wind": "07.60km/h"
+        }
+    ],
+    "timestamp": 1738873316
+}

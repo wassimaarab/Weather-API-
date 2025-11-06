@@ -1,0 +1,129 @@
+\hypertarget{classeirb_1_1pg203_1_1Data}{}\doxysection{eirb.\+pg203.\+Data Class Reference}
+\label{classeirb_1_1pg203_1_1Data}\index{eirb.pg203.Data@{eirb.pg203.Data}}
+
+
+Inheritance diagram for eirb.\+pg203.\+Data\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classeirb_1_1pg203_1_1Data__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for eirb.\+pg203.\+Data\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classeirb_1_1pg203_1_1Data__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_a26a824131ed9850e6a4bd209a70fc096}{array\+Check\+Cache}} (String api, String city)
+\item 
+abstract JSONObject \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_abd6d08e443cebb43748e9db79243c351}{get\+Full\+Data}} (String localisation)
+\item 
+abstract void \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_afdcb29f9ff99bf03345507377af40531}{get\+Targeted\+Data}} ()
+\item 
+String \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_a8e52620263e34895b43ee8fb1feff11c}{normalizeformat}} (double value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_aeb7f8ccc23e654bcd63573d1989cdf6a}{api\+Name}}
+\item 
+String \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_af263d5ff1a77bef0a0fa055fe71df268}{Location}}
+\item 
+JSONObject \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_a8dae60cb3733667957da908aae45e0e6}{a\+Json\+Object}}
+\item 
+JSONArray \mbox{\hyperlink{classeirb_1_1pg203_1_1Data_afa13baa7b22f02a009c94c21f97f18be}{target\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1Data_a26a824131ed9850e6a4bd209a70fc096}\label{classeirb_1_1pg203_1_1Data_a26a824131ed9850e6a4bd209a70fc096}} 
+\index{eirb.pg203.Data@{eirb.pg203.Data}!arrayCheckCache@{arrayCheckCache}}
+\index{arrayCheckCache@{arrayCheckCache}!eirb.pg203.Data@{eirb.pg203.Data}}
+\doxysubsubsection{\texorpdfstring{arrayCheckCache()}{arrayCheckCache()}}
+{\footnotesize\ttfamily void eirb.\+pg203.\+Data.\+array\+Check\+Cache (\begin{DoxyParamCaption}\item[{String}]{api,  }\item[{String}]{city }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Put the data into \char`\"{}target\+Data\char`\"{} from the cache if exist , stores them in the cach otherwise 
+\begin{DoxyParams}{Parameters}
+{\em api} & \+: String \\
+\hline
+{\em city} & \+: String \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1Data_abd6d08e443cebb43748e9db79243c351}\label{classeirb_1_1pg203_1_1Data_abd6d08e443cebb43748e9db79243c351}} 
+\index{eirb.pg203.Data@{eirb.pg203.Data}!getFullData@{getFullData}}
+\index{getFullData@{getFullData}!eirb.pg203.Data@{eirb.pg203.Data}}
+\doxysubsubsection{\texorpdfstring{getFullData()}{getFullData()}}
+{\footnotesize\ttfamily abstract JSONObject eirb.\+pg203.\+Data.\+get\+Full\+Data (\begin{DoxyParamCaption}\item[{String}]{localisation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Get the full data for a given location Handle API connection and argument exceptions 
+\begin{DoxyParams}{Parameters}
+{\em localisation} & \+: the given location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSONObject with data inside ~\newline
+ 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classeirb_1_1pg203_1_1WeatherAPI_ab85c5e845dedc9cfe9f9392d07bc9d23}{eirb.\+pg203.\+Weather\+API}}, and \mbox{\hyperlink{classeirb_1_1pg203_1_1OpenMeteo_a59271477bdef0bab762b7bd27f04d247}{eirb.\+pg203.\+Open\+Meteo}}.
+
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1Data_afdcb29f9ff99bf03345507377af40531}\label{classeirb_1_1pg203_1_1Data_afdcb29f9ff99bf03345507377af40531}} 
+\index{eirb.pg203.Data@{eirb.pg203.Data}!getTargetedData@{getTargetedData}}
+\index{getTargetedData@{getTargetedData}!eirb.pg203.Data@{eirb.pg203.Data}}
+\doxysubsubsection{\texorpdfstring{getTargetedData()}{getTargetedData()}}
+{\footnotesize\ttfamily abstract void eirb.\+pg203.\+Data.\+get\+Targeted\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Extract the targeted data (Temperature , wind Speed , weather ...) from our JSONObject ~\newline
+ And put it in the JSONArray target\+Data 
+
+Reimplemented in \mbox{\hyperlink{classeirb_1_1pg203_1_1WeatherAPI_a3eff101619e3f49f031631b4a79f78a9}{eirb.\+pg203.\+Weather\+API}}, and \mbox{\hyperlink{classeirb_1_1pg203_1_1OpenMeteo_acce5453242d750800fe59af7cdb6c791}{eirb.\+pg203.\+Open\+Meteo}}.
+
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1Data_a8e52620263e34895b43ee8fb1feff11c}\label{classeirb_1_1pg203_1_1Data_a8e52620263e34895b43ee8fb1feff11c}} 
+\index{eirb.pg203.Data@{eirb.pg203.Data}!normalizeformat@{normalizeformat}}
+\index{normalizeformat@{normalizeformat}!eirb.pg203.Data@{eirb.pg203.Data}}
+\doxysubsubsection{\texorpdfstring{normalizeformat()}{normalizeformat()}}
+{\footnotesize\ttfamily String eirb.\+pg203.\+Data.\+normalizeformat (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This function is used to write all the data in the forme \char`\"{}xx.\+xx\char`\"{} if positif, \char`\"{}-\/xx.\+x\char`\"{} otherwise @params value \+: the value to formats \begin{DoxyReturn}{Returns}
+String containing the value in a specific format 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1Data_a8dae60cb3733667957da908aae45e0e6}\label{classeirb_1_1pg203_1_1Data_a8dae60cb3733667957da908aae45e0e6}} 
+\index{eirb.pg203.Data@{eirb.pg203.Data}!aJsonObject@{aJsonObject}}
+\index{aJsonObject@{aJsonObject}!eirb.pg203.Data@{eirb.pg203.Data}}
+\doxysubsubsection{\texorpdfstring{aJsonObject}{aJsonObject}}
+{\footnotesize\ttfamily JSONObject eirb.\+pg203.\+Data.\+a\+Json\+Object}
+
+Retuned from an API connection \mbox{\Hypertarget{classeirb_1_1pg203_1_1Data_aeb7f8ccc23e654bcd63573d1989cdf6a}\label{classeirb_1_1pg203_1_1Data_aeb7f8ccc23e654bcd63573d1989cdf6a}} 
+\index{eirb.pg203.Data@{eirb.pg203.Data}!apiName@{apiName}}
+\index{apiName@{apiName}!eirb.pg203.Data@{eirb.pg203.Data}}
+\doxysubsubsection{\texorpdfstring{apiName}{apiName}}
+{\footnotesize\ttfamily String eirb.\+pg203.\+Data.\+api\+Name}
+
+\mbox{\Hypertarget{classeirb_1_1pg203_1_1Data_af263d5ff1a77bef0a0fa055fe71df268}\label{classeirb_1_1pg203_1_1Data_af263d5ff1a77bef0a0fa055fe71df268}} 
+\index{eirb.pg203.Data@{eirb.pg203.Data}!Location@{Location}}
+\index{Location@{Location}!eirb.pg203.Data@{eirb.pg203.Data}}
+\doxysubsubsection{\texorpdfstring{Location}{Location}}
+{\footnotesize\ttfamily String eirb.\+pg203.\+Data.\+Location}
+
+The given location \mbox{\Hypertarget{classeirb_1_1pg203_1_1Data_afa13baa7b22f02a009c94c21f97f18be}\label{classeirb_1_1pg203_1_1Data_afa13baa7b22f02a009c94c21f97f18be}} 
+\index{eirb.pg203.Data@{eirb.pg203.Data}!targetData@{targetData}}
+\index{targetData@{targetData}!eirb.pg203.Data@{eirb.pg203.Data}}
+\doxysubsubsection{\texorpdfstring{targetData}{targetData}}
+{\footnotesize\ttfamily JSONArray eirb.\+pg203.\+Data.\+target\+Data}
+
+To store the targeted data 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/eirb/pg203/\mbox{\hyperlink{Data_8java}{Data.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eirb.pg203.OpenMeteoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-12-20T19:22:12" hostname="LAPTOP-USBTISVM" time="4.051">
+  <properties/>
+  <testcase name="getTargetedDataOpenMeteoTest1()" classname="eirb.pg203.OpenMeteoTest" time="2.082"/>
+  <testcase name="getTargetedDataOpenMeteoTest2()" classname="eirb.pg203.OpenMeteoTest" time="0.86"/>
+  <testcase name="getFullDataOpenMeteoTest1()" classname="eirb.pg203.OpenMeteoTest" time="0.271"/>
+  <testcase name="getFullDataOpenMeteoTest2()" classname="eirb.pg203.OpenMeteoTest" time="0.144"/>
+  <testcase name="getFullDataOpenMeteoTest3()" classname="eirb.pg203.OpenMeteoTest" time="0.689"/>
+  <system-out><![CDATA[Please enter a Valid city name
+]]></system-out>
+  <system-err><![CDATA[No city name mentionned
+]]></system-err>
+</testsuite>
