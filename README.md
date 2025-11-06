@@ -1,13 +1,4 @@
----
-documentclass: book
-papersize: a4
-fontsize: 10pt
-header-includes: |
-    \hypersetup{
-        colorlinks = true,
-        linkbordercolor = {pink},
-    }
----
+
 
 # Projet de PG203
 
@@ -79,3 +70,6 @@ Le rapport se trouve dans `build/reports/jacoco/test/html/index.html`.
 ./gradlew run --args="-l cityName"
 
 ```
+
+## Attention
+N'oublier Pas d'utiliser vos propres APIs
